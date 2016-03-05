@@ -1,7 +1,6 @@
 
 Import mojo2
 Import vector
-Import useful
 
 Class Render
 
