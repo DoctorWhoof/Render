@@ -1,5 +1,6 @@
 # Render
-Small rendering module for the Monkey programming language
+Small rendering module for the Monkey programming language.
+Requires the Vector module (or some equivalent module with Vector and Rect classes).
 
 Features:
 - Perform all rendering in a "virtual resolution" that automatically resizes to the display device
