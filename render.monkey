@@ -4,25 +4,25 @@ Import vector
 
 Class Render
 
-	Global width 				:= 320.0
-	Global height 				:= 240.0
+	Global width 			:= 320.0
+	Global height 			:= 240.0
 
-	Global camera				:= New Rect				'Camera coordinates
+	Global camera			:= New Rect		'Camera coordinates
 
-	Global enforceAspectRatio	:= False				'Adjusts width to preserve aspectRatio
-	Global integerScaling 		:= False				'Forces scaling to integer numbers (good for pixel art)
-	Global filterTextures 		:= Image.Filter			'Set to 0 to disable
+	Global enforceAspectRatio	:= False		'Adjusts width to preserve aspectRatio
+	Global integerScaling 		:= False		'Forces scaling to integer numbers (good for pixel art)
+	Global filterTextures 		:= Image.Filter		'Set to 0 to disable
 
-	Global renderToTexture 		:= False				'Setting to true will render to a texture, then scale it up to fill the screen
-	Global canvas				:Canvas 				'Points to canvas currently in use (textureCanvas or screenCanvas).
+	Global renderToTexture 		:= False		'Setting to true will render to a texture, then scale it up to fill the screen
+	Global canvas			:Canvas 		'Points to canvas currently in use (textureCanvas or screenCanvas).
 
-	Global debug				:= False				'Prints out debug info on the screen
-	Global drawWireframe		:= False				'Draws wireframes
+	Global debug			:= False		'Prints out debug info on the screen
+	Global drawWireframe		:= False		'Draws wireframes
 
-	Global scale				:= 1.0					'How much the virtual resolution is scaled to fill the device
-	Global rotation				:= 0.0					'To do: apply the transform matrix to the mouse, with rotation
-	Global timeScale			:= 1.0					'Used by Shapes (like sprites) to slow down/speed up playback
-	Global bgColor				:= [ 0.0, 0.0, 0.0 ]	'Background RGB values
+	Global scale			:= 1.0			'How much the virtual resolution is scaled to fill the device
+	Global rotation			:= 0.0			'To do: apply the transform matrix to the mouse, with rotation
+	Global timeScale		:= 1.0			'Used by Shapes (like sprites) to slow down/speed up playback
+	Global bgColor			:= [ 0.0, 0.0, 0.0 ]	'Background RGB values
 
 	'************  Read only fields  **********************************************************************
 
@@ -173,7 +173,7 @@ Class Render
 		camera.Size( _cropWidth/scale, _cropHeight/scale )
 
 		If renderToTexture
-			screenCanvas.Clear( 0.2, 0.2, 0.2, 1.0 )
+			screenCanvas.Clear( bgColor[0], bgColor[1], bgColor[2] )
 			screenCanvas.SetScissor( _cropLeft, _cropTop, _cropWidth, _cropHeight )
 			textureCanvas.Clear( bgColor[0], bgColor[1], bgColor[2] )
 		Else
@@ -242,7 +242,7 @@ Class Render
 	End
 
 	
-	Function Print:Void(text:String, trim:Int=0)
+	Function Echo:Void(text:String, trim:Int=0)
 		If debug
 			If trim > 0
 				Render.hud.Push(text[..trim])
